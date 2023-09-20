@@ -1,0 +1,25 @@
+<div class="row justify-content-center align-items-center min-vh-100 flex-column">
+
+    <div class="card col-lg-4 p-0">
+        <div class="card-header">
+            Register
+        </div>
+        <div class="card-body">
+            <form action="/user/register" method="post" class="form-group">
+                <div class="row mb-2">
+                    <label for="name" class="from-label">Full Name</label>
+                    <input type="text" name="name" id="name" class="form-control" required>
+                </div>
+                <div class="row mb-2">
+                    <label for="email" class="from-label">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" required>
+                </div>
+                <div class="row mb-2">
+                    <label for="password" class="from-label">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+</div>

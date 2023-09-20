@@ -1,0 +1,19 @@
+<header>
+    <nav class="navbar px-4 bg-dark">
+        <a href="/" class="navbar-brand">Picco</a>
+        <ul class="navbar-items d-flex justify-content-center align-items-center m-0 p-0">
+            <% if (locals.user) { %>
+                <li class="nav-link">
+                    <a class="btn btn-sm btn-outline-primary" href="/user/logout">Logout</a>
+                </li>
+            <% } else { %> 
+                <li class="nav-link">
+                    <a class="btn btn-sm btn-outline-primary" href="/user/login">Login</a>
+                </li>
+                <li class="nav-link">
+                    <a class="btn btn-sm btn-outline-primary" href="/user/register">Register</a>
+                </li>
+            <% } %>
+        </ul>
+    </nav>
+</header>

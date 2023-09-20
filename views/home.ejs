@@ -1,0 +1,50 @@
+<div class="row justify-content-center align-items-center min-vh-100 flex-column">
+    <div class="col-4 mb-5 text-center">
+        <h1>URL SHORTNER</h1>
+    </div>
+    <div class="col-4">
+        <form action="/url" method="post" class="form-group">
+            <div class="input-group mb-3">
+                <input type="text" name="url" class="form-control" placeholder="Enter Re-directional Url" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit" id="button-addon2">Generate Short Url</button>
+                </div>
+            </div>
+        </form>
+        <% if (locals.id) { %>
+            <div class="input-group mb-3">
+                <input type="text" value="http://localhost:8000/url/<%= id %>" name="url" class="form-control" placeholder="Enter Re-directional Url" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <a class="btn btn-primary" href="url/<%= id %>" target="_blank" id="button-addon2">Open Redirect Url</a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+    <div class="col-lg-8 p-5">
+        <% if (locals.url) { %>
+            <h1 class="text-center mb-3">ANALYTICS</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Short Url</th>
+                        <th>Re-direct Url</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% url.forEach(element => { %>
+                        <tr>
+                            <td><a href="/url/<%= element.shortenId %>" target="_blank" rel="noopener noreferrer">http://localhost:8000/url/<%= element.shortenId %></a></td>
+                            <td><a href="<%= element.redirectUrl %>" target="_blank" rel="noopener noreferrer"><%= element.redirectUrl %></a></td>
+                            <td>
+                                <a class="btn btn-secondary btn-sm" href="/url/analytics/<%= element.shortenId %>">Analytics</a>
+                                <a class="btn btn-secondary btn-sm" href="/url/delete/<%= element.shortenId %>">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            
+        <% } %>
+    </div>
+</div>

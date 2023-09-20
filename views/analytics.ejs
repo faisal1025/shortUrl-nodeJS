@@ -1,0 +1,22 @@
+<div class="row justify-content-center align-items-center min-vh-100 flex-column">
+    <div class="col-lg-8 p-5">
+        <h1 class="text-center mb-3">Total Time Visited <%= timeVisited %></h1>
+        <% if (locals.visitAnalytics) { %>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Time of visits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% visitAnalytics.forEach(element => { %>
+                        <tr>
+                            <td><%= new Date(element.timeStamp).toUTCString() %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            
+        <% } %>
+    </div>
+</div>
